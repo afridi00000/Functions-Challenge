@@ -55,3 +55,15 @@ function filterHighValueTransactions(transactions, filterFunction) {
 
 let transactions = [500, 1200, 3000, 800, 2200];
 console.log(filterHighValueTransactions(transactions, amount => amount > 1000));
+// Task 7: Closures - Budget Tracker
+function createBudgetTracker() {
+    let balance = 0;
+    return function(expense) {
+        balance -= expense;
+        return `Current Balance: -$${Math.abs(balance).toFixed(2)}`;
+    };
+}
+
+let budget = createBudgetTracker();
+console.log(budget(300)); 
+console.log(budget(200)); 
